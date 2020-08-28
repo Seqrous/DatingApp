@@ -33,6 +33,7 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'register', model);
   }
 
+  // verify if the token is valid
   loggedIn() {
     const token = localStorage.getItem('token');
     return !this.jwtHelper.isTokenExpired(token);
