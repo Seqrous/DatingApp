@@ -49,7 +49,12 @@
       <div class="tab-panel">
         <tabset class="member-tabset">
           <tab heading="Edit Profile">
-            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()" action="">
+            <form
+              #editForm="ngForm"
+              id="editForm"
+              (ngSubmit)="updateUser()"
+              action=""
+            >
               <h4>Description</h4>
               <textarea
                 name="introduction"
@@ -91,8 +96,10 @@
             </form>
           </tab>
           <tab heading="Edit Photos">
-            <h4>Interests</h4>
-            <p>Photo edit will go here</p>
+            <app-photo-editor
+              [photos]="user.photos"
+              (getMemberPhotoChange)="updateMainPhoto($event)"
+            ></app-photo-editor>
           </tab>
         </tabset>
       </div>
